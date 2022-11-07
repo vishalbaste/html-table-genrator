@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" >
+    <style>
+        .box{
+            max-width: 650px;
+            padding: 10px 20px;
+            margin: 50px auto;
+            border: 1px solid #000;
+            border-radius: 7px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+        .result{
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>Table Genrator</h2>
+        <p class="alert alert-danger"></p>
+        <div class="form-group">
+            <p>Colum</p><input type="number" placeholder="Row" class="form-control">
+        </div>
+        <div class="form-group">
+            <p>Row</p><input type="number" placeholder="Row" class="form-control">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-info">Submit</button>
+        </div>
+        <div class="result"></div>
+    </div>
+    <script>
+        let input=document.querySelectorAll("input"),
+            result= document.querySelector(".result"),
+            alertt=document.querySelector(".alert"),
+            button=document.querySelector("button");
+
+            button.addEventListener("click",ok);
+
+            function ok(){
+                alertt.innerHTML="";
+                var html="<table class='table'>";
+                for(var a=1; a <= input[0].value;a++){
+                    html +="<tr>";
+                        for(j=1;j<=input[1].value; j++){
+                                    html +=`<td>${a*j}</td>`;
+                            }
+                        html +="</tr>";
+                        }
+                        html +="</table>";
+                        result.innerHTML=html;
+                }
+                
+    </script>
+</body>
+</html>
